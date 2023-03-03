@@ -1,0 +1,3 @@
+Player
+    - Inspiration: Modok + doritoes guy --> uses gaming chair instead of floating device
+    - States: Walking / Idle --> Sucking state mouth open wide --> Eaten state checks full

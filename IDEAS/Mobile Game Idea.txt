@@ -1,0 +1,27 @@
+Eating Based Roguelike
+	Mechanics:
+		- Vacuum eating --> Spit out enemy
+		- Abilities buff spitting ability
+		- Glowing enemies give limited use special abilities
+		- Exp --> Level --> Ability 
+		- Plants vs zombie steal plants
+
+	Roguelike Mechanics:
+		- Suck multiple enemies --> shoot out multiple enemies
+		- Aoe
+		- Movement speed
+		- Hp
+		- Dmg
+		- Suck range
+		- Shoot velocity / shoot range
+		= Rebounding
+
+	Stage 1 Ideas:
+		- Small mushroom waves
+		- Glowing mushroom --> fart aoe lasting for ~ 5 sec
+		- Boss :
+			- Group of mushrooms -> Matured big cap mushrooms
+			- Static in middle
+			- Mini mushroom spawn to use to attack him 
+			- Shoots spores to dodge, and poison clouds
+		
