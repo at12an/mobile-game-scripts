@@ -1,4 +1,0 @@
-2m enemy1
-2m enemy2
-2m enemy3
-enemy3 special
