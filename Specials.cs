@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Specials : MonoBehaviour
 {
+    [SerializeField] PauseFunction pauseFunction;
     private List<string> titles = new List<string> {
         "Sporuption",
         "Diabetic Delirium",
@@ -18,7 +19,7 @@ public class Specials : MonoBehaviour
 
     private List<string> descriptions = new List<string> {
         "Enemies eaten are infected with sporupters that spread and explode on death",
-        "Players has into hallucination, manifesting a second self",
+        "Players falls into hallucination, manifesting a second self",
         "Player is able to dash on cooldown",
         "Enemies eaten are forged into a metal blade",
         "Develop a toxinous stomach biome and regurgitate poison pools",
@@ -77,7 +78,7 @@ public class Specials : MonoBehaviour
         gameObject.SetActive(false);
         canvasGroup.alpha = 1;
         canvasGroup.interactable = true;
-        Time.timeScale = 1;
+        pauseFunction.paused = false;
     }
 
     private void Sporuption() {

@@ -17,6 +17,7 @@ public class SpecialScreen : MonoBehaviour
     private int id3;
     private bool subsequent;
     [SerializeField] private TextMeshProUGUI subsequentText;
+     [SerializeField] PauseFunction pauseFunction;
 
     public void StartSpecial()
     {
@@ -24,7 +25,7 @@ public class SpecialScreen : MonoBehaviour
         gameObject.SetActive(true);
         canvasGroup.alpha = 0;
         canvasGroup.interactable = false;
-        Time.timeScale = 0;
+        pauseFunction.paused = true;
 
         // Get valid id
         id1 = GetValidId(100,100);
@@ -73,6 +74,8 @@ public class SpecialScreen : MonoBehaviour
             } else if (playerStats.crystalProj && id == 0) {
                 run = true; 
             } else if (playerStats.sporuptionLvl > 0 && id == 3) {
+                run = true;
+            } else if (id == 5) {
                 run = true;
             }
         }

@@ -26,6 +26,7 @@ public class EnemyStats : MonoBehaviour
     public bool damaged;
     public bool shielded;
     [SerializeField] private GameObject deathScreen;
+    [SerializeField] private TimeSpawner timeSpawner;
 
     public bool isDamagable(int sporuptionExp) {
         // Check for different generation of damages / in immunity time / or shielded
@@ -86,6 +87,7 @@ public class EnemyStats : MonoBehaviour
     }
 
     public virtual void Die () {
+        timeSpawner.enemyCount -= 1;
         UnityEngine.Object.Destroy(gameObject);
         if (gameObject.name.Contains("Boss")) {
             PlayerPrefs.SetInt("Gold", PlayerPrefs.GetInt("Gold") + 100);

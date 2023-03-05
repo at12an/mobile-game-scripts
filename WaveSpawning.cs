@@ -13,6 +13,7 @@ public class WaveSpawning : MonoBehaviour
     [SerializeField] private GameObject waveEnemy2S;
     [SerializeField] private float interval;
     private Camera cam;
+    public int enemyCount;
 
     void Update() {
         if (interval > 0.5f) {

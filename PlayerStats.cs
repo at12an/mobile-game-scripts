@@ -49,6 +49,7 @@ public class PlayerStats : MonoBehaviour
     public bool autoAim;
     public bool charmed;
     [SerializeField] private Transform boss;
+    [SerializeField] PauseFunction pauseFunction;
 
     public bool pillow;
 
@@ -81,6 +82,7 @@ public class PlayerStats : MonoBehaviour
         if (PlayerPrefs.GetInt("startSpecial") == 1) {
             specialScreen.StartSpecial();
         }
+        specialScreen.StartSpecial();
         currentHealth = maxHealth;
         level = 0;
         startTime = Time.time;
@@ -146,7 +148,7 @@ public class PlayerStats : MonoBehaviour
             maxHealth = maxHealth /2;
             currentHealth = maxHealth;
         } else {
-            // Time.timeScale = 0;
+            pauseFunction.paused = true;
             gameObject.SetActive(false);
             deathScreen.SetActive(true);
             UI.SetActive(false);

@@ -55,6 +55,7 @@ public class Upgrades : MonoBehaviour
 
     [SerializeField] private PlayerStats playerStats;
     [SerializeField] private CanvasGroup canvasGroup;
+    [SerializeField] PauseFunction pauseFunction;
 
     public string GetDescription(int index) {
         return descriptions[index];
@@ -111,7 +112,8 @@ public class Upgrades : MonoBehaviour
         gameObject.SetActive(false);
         canvasGroup.alpha = 1;
         canvasGroup.interactable = true;
-        Time.timeScale = 1;
+        pauseFunction.paused = false;
+        
     }
 
     public void Upgrade0() {

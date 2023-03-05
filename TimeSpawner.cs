@@ -23,6 +23,7 @@ public class TimeSpawner : MonoBehaviour
     private Camera cam;
     [SerializeField] private Transform bottomLeft;
     [SerializeField] private Transform topRight;
+    public int enemyCount;  
 
     void Start()
     {
@@ -35,24 +36,23 @@ public class TimeSpawner : MonoBehaviour
         // 0S
         StartCoroutine(SpawnEnemyWithinTimeFrame(80f, waveEnemy0S, Time.time, 1f));
         // 0 1, 90sec
-        StartCoroutine(WaitThenStartSpawning(4f, waveEnemy1, 90f));
-        StartCoroutine(WaitThenStartSpawning(2f, waveEnemy0, 90f));
+        StartCoroutine(WaitThenStartSpawning(5f, waveEnemy1, 90f));
+        StartCoroutine(WaitThenStartSpawning(5f, waveEnemy0, 90f));
         // 1S
         StartCoroutine(SpawnEnemyWithinTimeFrame(170f, waveEnemy1S, Time.time, 1f));
         // 1 2, 90 sec
         StartCoroutine(WaitThenStartSpawning(2f, waveEnemy2, 180f));
-        StartCoroutine(WaitThenStartSpawning(3f, waveEnemy1, 180f));
         // 2S
-        StartCoroutine(SpawnEnemyWithinTimeFrame(210f, waveEnemy2S, Time.time, 1f));
+        StartCoroutine(SpawnEnemyWithinTimeFrame(250f, waveEnemy2S, Time.time, 1f));
         // 3 -1 90 sec
         StartCoroutine(WaitThenStartSpawning(6f, waveEnemy3, 270f));
         StartCoroutine(WaitThenStartSpawningB(2f, waveEnemy0, 270f));
         // 4 -1, 90 sec
-        StartCoroutine(WaitThenStartSpawning(4f, waveEnemy4, 360f));
-        StartCoroutine(WaitThenStartSpawningB(2f, waveEnemy0, 360f));
+        StartCoroutine(WaitThenStartSpawning(5f, waveEnemy4, 360f));
+        StartCoroutine(WaitThenStartSpawningB(3f, waveEnemy0, 360f));
         // Spawn boss and broccoli
         StartCoroutine(SpawnBoss());
-        StartCoroutine(WaitThenStartSpawningB(3f, waveEnemy0, 450f));
+        StartCoroutine(WaitThenStartSpawningB(4f, waveEnemy0, 450f));
     }
 
     private IEnumerator SpawnBroccoli(float spawnInterval, GameObject enemy, float startTime, float timeFrame) {
@@ -100,8 +100,11 @@ public class TimeSpawner : MonoBehaviour
                 x = Random.Range(bottomLeft.position.x + 5, bottomLeft.position.x + 10);
             }
         }
+        if (enemyCount < 25 || enemy.name.Contains("S")) {
         GameObject newEnemy = Instantiate(enemy, new Vector3(x,y,0), Quaternion.identity);
+        enemyCount += 1;
         newEnemy.SetActive(true);
+        }
 
         // Repeat spawning cycle
         if (Time.time - startTime < timeFrame) {

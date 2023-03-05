@@ -7,17 +7,15 @@ public class Pause : MonoBehaviour
 {
     [SerializeField] private Sprite pause;
     [SerializeField] private Sprite unpause;
-    private bool paused;
+    [SerializeField] private PauseFunction pauseFunction;
     
     private void PauseGame() {
-        if (!paused) {
-            Time.timeScale = 0;
+        if (pauseFunction.paused) {
+            pauseFunction.paused = false;
             gameObject.GetComponent<Image>().sprite = unpause;
-            paused = true;
         } else {
-            Time.timeScale = 1;
+            pauseFunction.paused = true;
             gameObject.GetComponent<Image>().sprite = pause;
-            paused = false;
         }
     }
 }

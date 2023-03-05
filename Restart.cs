@@ -9,27 +9,28 @@ public class Restart : MonoBehaviour
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private GameInfo gameInfo;
     [SerializeField] private GameObject nextStage;
+    [SerializeField] private PauseFunction pauseFunction;
 
     public void ResetGame() {
-        Time.timeScale = 1;
+        pauseFunction.paused = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Time.timeScale = 1;
+        pauseFunction.paused = false;
     }
 
     public void NextStage() {
         PlayerPrefs.SetFloat("scaleFactor", PlayerPrefs.GetFloat("scaleFactor") + 0.1f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Time.timeScale = 1;
+        pauseFunction.paused = false;
     }
 
     public IEnumerator ResetTime() {
         yield return new WaitForSeconds(4f);
-        Time.timeScale = 1;
+        pauseFunction.paused = false;
     }
 
     public void ToMenu() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-        Time.timeScale = 1;
+        pauseFunction.paused = false;
     }
 
     private void Update() {

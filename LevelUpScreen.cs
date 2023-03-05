@@ -17,6 +17,7 @@ public class LevelUpScreen : MonoBehaviour
     private List<int> hp = new List<int> {2,3};
     private List<int> crit = new List<int> {11,12};
     [SerializeField] private List<Sprite> cards;
+    [SerializeField] PauseFunction pauseFunction;
     
     // Start is called before the first frame update
     public void StartLevelUp()
@@ -27,7 +28,7 @@ public class LevelUpScreen : MonoBehaviour
         gameObject.SetActive(true);
 
         // Stop time
-        Time.timeScale = 0;
+        pauseFunction.paused = true;
 
         // Generate three random numbers and change buttons accordingly
         int id1 = GetValidId(100,100);

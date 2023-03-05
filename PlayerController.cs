@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     private float expScale;
     private float timer;
     [SerializeField] private GameObject pillow;
-    [SerializeField] private FixedJoystick aimStick;
+    [SerializeField] private FloatingJoystick aimStick;
     private bool sucking;
     private Vector3 prevMoveVector;
     private bool moved;
@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
             
         } else if (aimStick.Horizontal == 0 && aimStick.Vertical == 0 && moved) {
             if (!sucking && numEnemiesEaten > 0) {
-                StartCoroutine(WaitThenShoot());
+                useVacuum();
                 moveVector = prevMoveVector;
             }
         }
@@ -213,7 +213,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private IEnumerator WaitThenShoot(){
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.1f);
         useVacuum();
     }
 
