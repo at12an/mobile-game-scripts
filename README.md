@@ -1,5 +1,5 @@
 # Scripts
-All C# scripts for my solo developed mobile game made in Unity called "paj.io" - currently deployed on play store.
+All C# scripts for my solo developed mobile game made in Unity called "nart.io" - currently deployed on play store.
 
 "nart.io" is a roguelike, meaning that every playthrough the player starts from stratch. The goal of the game is to fight food-designed enemies, gaining food themed power ups and upgrade combinations in order to clear stages.
 
